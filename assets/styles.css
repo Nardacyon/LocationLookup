@@ -1,3 +1,7 @@
 .container{
     text-align: center;
+    border-spacing: 15px;
+}
+.buffer {
+    margin-top: 20px;
 }
