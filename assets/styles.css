@@ -2,6 +2,41 @@
     text-align: center;
     border-spacing: 15px;
 }
+
+/* header {
+    background: ;
+} */
+
+.map {
+    height: 400px;
+    width: 100%;
+}
+
+.weather-card {
+    background-color: darkgray;
+    font-size: 18px;
+    color: white;
+
+}
+
+.forecast-card {
+    background-color: #007bff;
+    font-size: 18px;
+    color: white;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+}
+
+.thumbnail {
+    width: 700px;
+    text-align: left;
+}
+
+.news-container {
+    display: inline-block;
+}
+
 .buffer {
     margin-top: 20px;
 }
