@@ -1,38 +1,3 @@
-// const mapsKey = "pk.eyJ1IjoibmFyZGFjeW9uIiwiYSI6ImNrZHVpYnYydzA4NHQyeW9namNzYW5ncDQifQ.d9XwB7yRUuZAtnXx-4pGHQ";
-// var locationInput = "San%20Diego,CA";
-
-// 
-// const mapsURL = "https://api.mapbox.com/?access_token=" + mapsKey;
-
-// $.ajax({
-//     url: corsAnywherePrefix + mapsURL,
-//     method: 'GET'
-// })
-// .then(function (responseMaps){
-//     console.log(responseMaps);
-//     var map = new mapboxgl.Map({
-//         container: 'map',
-//         style: 'mapbox://styles/mapbox/light-v10',
-//         center: [-96, 37.8],
-//         zoom: 3
-//       });
-// })
-// .catch(function (error) {
-//     console.log(error);
-// });
-
-// var map = new ol.Map({
-//     target: 'map',
-//     layers: [
-//       new ol.layer.Tile({
-//         source: new ol.source.OSM()
-//       })
-//     ],
-//     view: new ol.View({
-//       center: ol.proj.fromLonLat([-117.16, 32.72]),
-//       zoom: 4
-//     })
-//   });
 let previousMonth = moment().subtract(1, "month").format('YYYY/MM/DD');
 console.log(previousMonth)
 
