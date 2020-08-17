@@ -5,6 +5,7 @@ const censusKey = "a0c1493a1c79e4680d709f96001b49d5df683b82";
 const weatherAPI = "4392f23b16ef4173136c90ec556dff94";
 const newsAPI = "839c97c1784e48ea9080960111bbc030";
 
+
 $(document).ready(function () {
 
     $(".submit").on("click", function(event) {
@@ -30,18 +31,20 @@ $(document).ready(function () {
 
     function startNewsHeadlines(searchLocation) {
         $(".news-container").empty();
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://bing-news-search1.p.rapidapi.com/news/search?freshness=Day&textFormat=Raw&safeSearch=Off",
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
-                "x-rapidapi-key": "ec9dfe9dc8msh78e949798989417p1e7203jsn200ebc7e2cc5",
-                "x-bingapis-sdk": "true"
-            }
-        }
+        // var settings = {
+        //     "async": true,
+        //     "crossDomain": true,
+        //     "url": "https://bing-news-search1.p.rapidapi.com/news/search?freshness=Day&textFormat=Raw&safeSearch=Off",
+        //     "method": "GET",
+        //     "headers": {
+        //         "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
+        //         "x-rapidapi-key": "ec9dfe9dc8msh78e949798989417p1e7203jsn200ebc7e2cc5",
+        //         "x-bingapis-sdk": "true"
+        //     }
+        // }
         
+
+
         $.ajax(settings).done(function (newsResponse) {
             console.log(newsResponse);
 
@@ -79,7 +82,7 @@ $(document).ready(function () {
             let weatherIconCode = responseWeather.weather[0].icon;
             var weatherIconLink = "http://openweathermap.org/img/wn/" + weatherIconCode + ".png"
 
-            $(".forecast-container").text("Current weather outlook and forecast for " + searchLocation)
+            $(".forecast-container").text("Current weather outlook and forecast for " + responseWeather.name)
 
             let weatherCard = $("<div>").addClass("weather-card")
             let cardHeader = $("<h5>").text(responseWeather.name)
