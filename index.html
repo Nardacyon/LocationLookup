@@ -17,38 +17,32 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script defer src='./assets/script.js'></script>
 
+    <header>Location Lookup</header>
+
     <!-- Retrieved data will be dumped here -->
     <div class="container">
-        <header>Location Lookup</header>
+
         <div class="search-bar">
-            <input type="text" id="search-input">
+            <input type="text" id="search-input" placeholder="Search">
             <button type="submit" class="submit"><span class="icon"><i class="fa fa-search"></i></span></button>
         </div>
 
-        <div class='buffer'></div>
-        <div class="row Location">
-            <div class="map-container col-md-12">
-                Location Data- maybe a map and some other stuff
+        <div class="location">
+            <div class="map-container">
+                Search a city
             </div>
-        <div id="map" class="map"></div>
+            <div id="map" class="map hide"></div>
         </div>
 
-        <div class='buffer'></div>
-        <div class="row Weather">
-            <div class="forecast-container col-md-12">
-                weather data- like what we built in lecture 
+        <div class="weather">
+            <div class="forecast-container">
+                Weather data and forecast will be shown here
             </div>
         </div>
-        <div class='buffer'></div>
-        <div class="row Census">
-            <div class="census-container col-md-12">
-                census data- so population, density, etc..
-            </div>
-        </div>
-        <div class='buffer'></div>
-        <div class="row News">
-            <div class="news-container col-md-12">
-                latest headlines related to this location
+
+        <div class="news">
+            <div class="news-container">
+                Search a location to find Major Headlines
             </div>
         </div>
 

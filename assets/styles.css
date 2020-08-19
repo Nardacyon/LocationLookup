@@ -1,11 +1,19 @@
 .container{
     text-align: center;
-    border-spacing: 15px;
 }
 
-/* header {
-    background: ;
-} */
+header {
+    background: #05336b;
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    padding: 10px;
+}
+
+.search-bar {
+    margin: 10px;
+}
 
 .map {
     height: 400px;
@@ -33,10 +41,14 @@
     text-align: left;
 }
 
-.news-container {
-    display: inline-block;
+.map-container, .forecast-container, .news-container {
+    font-size: 24px;
 }
 
 .buffer {
     margin-top: 20px;
+} 
+
+.hide {
+    display: none;
 }
