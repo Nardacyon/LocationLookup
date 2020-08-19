@@ -1,4 +1,6 @@
-# project-1-repo
+# Location Lookup
+
+Deployed Link: https://nardacyon.github.io/LocationLookup/
 
 ![]./assets/screenshot.png
 
