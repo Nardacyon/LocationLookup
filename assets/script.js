@@ -1,9 +1,6 @@
 let previousMonth = moment().subtract(1, "month").format('YYYY/MM/DD');
-console.log(previousMonth)
 
-const censusKey = "a0c1493a1c79e4680d709f96001b49d5df683b82";
 const weatherAPI = "4392f23b16ef4173136c90ec556dff94";
-const newsAPI = "839c97c1784e48ea9080960111bbc030";
 
 
 $(document).ready(function () {
@@ -12,56 +9,55 @@ $(document).ready(function () {
         event.preventDefault();
         let searchLocation = $("#search-input").val();
         startSearch(searchLocation);
-        // startCensusSearch(searchLocation);
         startNewsHeadlines(searchLocation);
     })
 
-    // function startCensusSearch(searchLocation) {
-    //     const censusUrl = "https://api.census.gov/data/2014/pep/natstprc?get=STNAME,POP&DATE_=7&for=state:" + searchLocation + "&key=" + censusKey;
-
-    //     $.ajax({
-    //         url: corsAnywherePrefix + censusUrl,
-    //         method: "GET",
-    //     })
-    //     .then(function(response) {
-    //         console.log(response)
-    //     })
-    
-    // }
-
     function startNewsHeadlines(searchLocation) {
         $(".news-container").empty();
-        // var settings = {
-        //     "async": true,
-        //     "crossDomain": true,
-        //     "url": "https://bing-news-search1.p.rapidapi.com/news/search?freshness=Day&textFormat=Raw&safeSearch=Off",
-        //     "method": "GET",
-        //     "headers": {
-        //         "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
-        //         "x-rapidapi-key": "ec9dfe9dc8msh78e949798989417p1e7203jsn200ebc7e2cc5",
-        //         "x-bingapis-sdk": "true"
-        //     }
-        // }
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://bing-news-search1.p.rapidapi.com/news/search?q=" + searchLocation + "&freshness=Day&textFormat=Raw&safeSearch=Off",
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
+                "x-rapidapi-key": "ec9dfe9dc8msh78e949798989417p1e7203jsn200ebc7e2cc5",
+                "x-bingapis-sdk": "true"
+            }
+        }
         
 
 
         $.ajax(settings).done(function (newsResponse) {
-            console.log(newsResponse);
 
             $(".news-container").text("Major headlines in " + searchLocation);
-            let newsCard = $("<div>").addClass("news-card")
+            let newsCard = $("<div>").addClass("news-card content")
+            let articleElement = $("<article>").addClass("media")
+            let imageLeft = $("<div>").addClass("media-left")
+            // let box = $("<div>").addClass("box")
+            let mediaContent = $("<div>").addClass("media-content")
 
             for (let i = 0; i < 9; i++) {
                 let newsImage = $("<img>").attr("src", newsResponse.value[i].image.thumbnail.contentUrl)
+                newsImage.attr("alt", "News Thumbnail")
                 newsImage.addClass(".thumbnail")
                 let headlines = $("<h2>")
                 let newsHyperLink = $("<a>").attr("href", newsResponse.value[i].url)
                 newsHyperLink.text(newsResponse.value[i].name)
 
+                let figure = $("<figure>").addClass("image is-64x64")
+
+                figure.append(newsImage)
+                imageLeft.append(figure)
                 headlines.append(newsHyperLink)
+                newsCard.append(headlines)
+                mediaContent.append(newsCard)
+                articleElement.append(imageLeft, mediaContent)
+                $(".box").append(articleElement)
+
+
                 newsCard.append(newsImage, headlines)
                 $(".news-container").append(newsCard)
-
             }
         });
     }
@@ -70,13 +66,13 @@ $(document).ready(function () {
         $(".map-container").empty();
         $(".map").empty();
         $(".forecast-container").empty();
+        $(".map").show();
         const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searchLocation + "&appid=" + weatherAPI + "&units=imperial";
         $.ajax({
             url: weatherUrl,
             method: "GET"
         })
         .then(function (responseWeather) {
-            console.log(responseWeather)
             let longitude = responseWeather.coord.lon;
             let latitude = responseWeather.coord.lat;
             let weatherIconCode = responseWeather.weather[0].icon;

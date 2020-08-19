@@ -1,11 +1,19 @@
 .container{
     text-align: center;
-    border-spacing: 15px;
 }
 
-/* header {
-    background: ;
-} */
+header {
+    background: #05336b;
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    padding: 10px;
+}
+
+.search-bar {
+    margin: 10px;
+}
 
 .map {
     height: 400px;
@@ -28,10 +36,10 @@
     padding: 10px;
 }
 
-.thumbnail {
+/* .thumbnail {
     width: 700px;
     text-align: left;
-}
+} */
 
 .news-container {
     display: inline-block;
@@ -39,4 +47,8 @@
 
 .buffer {
     margin-top: 20px;
+} 
+
+.hide {
+    display: none;
 }
