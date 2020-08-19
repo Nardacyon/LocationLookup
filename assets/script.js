@@ -34,14 +34,13 @@ $(document).ready(function () {
             let newsCard = $("<div>").addClass("news-card content")
             let articleElement = $("<article>").addClass("media")
             let imageLeft = $("<div>").addClass("media-left")
-            // let box = $("<div>").addClass("box")
             let mediaContent = $("<div>").addClass("media-content")
 
             for (let i = 0; i < 9; i++) {
                 let newsImage = $("<img>").attr("src", newsResponse.value[i].image.thumbnail.contentUrl)
                 newsImage.attr("alt", "News Thumbnail")
                 newsImage.addClass(".thumbnail")
-                let headlines = $("<h2>")
+                let headlines = $("<h3>")
                 let newsHyperLink = $("<a>").attr("href", newsResponse.value[i].url)
                 newsHyperLink.text(newsResponse.value[i].name)
 
@@ -54,7 +53,6 @@ $(document).ready(function () {
                 mediaContent.append(newsCard)
                 articleElement.append(imageLeft, mediaContent)
                 $(".box").append(articleElement)
-
 
                 newsCard.append(newsImage, headlines)
                 $(".news-container").append(newsCard)
