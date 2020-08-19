@@ -2,7 +2,7 @@
 
 Deployed Link: https://nardacyon.github.io/LocationLookup/
 
-![]./assets/screenshot.png
+![](./assets/screenshot.png)
 
 This application, Location Lookup was developed for users who want to find information based on a user query input. By searching a city or any given location the application will display a map, weather forecast, and trending news headlines.
 
